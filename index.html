@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sikander Premium 💘</title>
+
+  <!-- Cute romantic fonts (works best when opened in Safari/Chrome or hosted) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg1:#fff0f6;
+      --bg2:#ffd6e7;
+      --bg3:#ffc2da;
+
+      --card: rgba(255,255,255,.78);
+      --stroke: rgba(255, 77, 125, .22);
+
+      --ink:#2a1b22;
+      --muted: rgba(42, 27, 34, .72);
+
+      --rose:#ff3d7f;
+      --rose2:#ff6fa1;
+      --berry:#8b1d4d;
+
+      --shadow: 0 18px 60px rgba(74, 12, 40, .16);
+      --softShadow: 0 10px 30px rgba(74, 12, 40, .10);
+      --focus: 0 0 0 3px rgba(255, 61, 127, .18);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family: "Quicksand", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 700px at 15% 15%, var(--bg1), transparent 60%),
+        radial-gradient(900px 700px at 85% 85%, var(--bg2), transparent 60%),
+        linear-gradient(135deg, #ffffff, var(--bg3));
+      overflow-x:hidden;
+    }
+
+    .wrap{max-width:1000px;margin:0 auto;padding:28px 16px 90px;position:relative;z-index:2;}
+    .card{
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+      border-radius: 28px;
+      padding: 26px;
+    }
+
+    h1{
+      margin:0 0 8px;
+      font-size: clamp(34px, 5vw, 60px);
+      letter-spacing:-.03em;
+      line-height:1.03;
+      color: var(--berry);
+    }
+    .sub{
+      margin:0 0 18px;
+      color: var(--muted);
+      line-height:1.6;
+      font-size: 16px;
+      font-weight:700;
+    }
+
+    .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px; align-items:center;}
+    button{
+      appearance:none;border:0;cursor:pointer;
+      font-weight:900;
+      padding: 12px 16px;
+      border-radius: 14px;
+      transition: transform .12s ease, box-shadow .12s ease, width .18s ease, font-size .18s ease;
+      outline:none;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    button:focus-visible{ box-shadow: var(--focus); }
+    button:active{transform: translateY(1px) scale(.99)}
+
+    .primary{
+      background: linear-gradient(135deg, var(--rose), var(--rose2));
+      color:#fff;
+      box-shadow: 0 14px 35px rgba(255, 61, 127, .28);
+    }
+    .ghost{
+      background: rgba(255,255,255,.85);
+      color: var(--ink);
+      box-shadow: var(--softShadow);
+      border: 1px solid rgba(142, 27, 82, .12);
+    }
+
+    .pill{
+      display:inline-flex;gap:10px;align-items:center;
+      padding:10px 14px;border-radius:999px;
+      background: rgba(255,255,255,.75);
+      border:1px solid var(--stroke);
+      box-shadow: var(--softShadow);
+      font-weight:900;
+      color: var(--berry);
+    }
+
+    .panel{
+      border-radius: 24px;
+      border:1px solid rgba(255, 61, 127, .20);
+      background: rgba(255,255,255,.70);
+      box-shadow: var(--softShadow);
+      padding: 18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .panel h2{
+      margin:0 0 6px;
+      font-size: 22px;
+      color: var(--berry);
+      letter-spacing:-.02em;
+    }
+    .panel p{margin:0;color:var(--muted);line-height:1.6;font-weight:700;}
+
+    .priceTag{
+      margin-top:12px;
+      display:inline-flex;gap:10px;align-items:center;
+      padding:10px 12px;border-radius:16px;
+      background: rgba(255,240,246,.85);
+      border:1px dashed rgba(255,61,127,.30);
+      font-weight:1000;
+      color: var(--berry);
+    }
+    .bigMsg{
+      margin-top:14px;
+      padding:14px 14px;
+      border-radius:18px;
+      background: rgba(255,255,255,.72);
+      border: 1px dashed rgba(255, 61, 127, .35);
+      color: rgba(42, 27, 34, .86);
+      line-height:1.75;
+      font-weight:800;
+    }
+
+    /* YES grid after "Last chance" */
+    .yesGrid{
+      display:none;
+      margin-top:14px;
+      gap:10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @media (min-width: 640px){
+      .yesGrid{ grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    }
+    .yesGrid.show{ display:grid; }
+
+    /* make yes big on stage 2 */
+    .yesBig{
+      font-size: 18px;
+      padding: 16px 20px;
+      transform: scale(1.12);
+    }
+    .noSmall{
+      font-size: 12px;
+      padding: 10px 12px;
+      opacity: .9;
+      transform: scale(.92);
+    }
+
+    /* pages */
+    .page{display:none;}
+    .page.active{display:block;}
+
+    /* COVER OPENING */
+    .cover{
+      position:fixed; inset:0;
+      display:grid; place-items:center;
+      z-index:50;
+      background:
+        radial-gradient(900px 700px at 20% 20%, rgba(255,255,255,.8), transparent 60%),
+        radial-gradient(900px 700px at 80% 80%, rgba(255,214,231,.9), transparent 60%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+      transition: opacity .6s ease, transform .8s cubic-bezier(.2,.9,.1,1);
+    }
+    .coverInner{
+      width:min(920px,92vw);
+      border-radius: 30px;
+      padding: 26px;
+      background: rgba(255,255,255,.65);
+      border:1px solid rgba(255, 61, 127, .20);
+      box-shadow: var(--shadow);
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .coverTitle{
+      position:relative;
+      font-family:"Dancing Script", cursive;
+      font-size: clamp(44px, 7vw, 84px);
+      margin: 6px 0 10px;
+      color: var(--berry);
+    }
+    .coverText{
+      position:relative;
+      font-size: 16px;
+      color: var(--muted);
+      line-height:1.7;
+      margin: 0 auto 16px;
+      max-width: 60ch;
+      font-weight:700;
+    }
+    .coverHint{
+      position:relative;
+      display:inline-flex;gap:10px;align-items:center;
+      padding:10px 12px;border-radius:999px;
+      background: rgba(255,255,255,.75);
+      border:1px solid rgba(255, 61, 127, .20);
+      font-weight:900;
+      color: var(--berry);
+    }
+    .cover.open{
+      opacity:0;
+      transform: translateY(-18px) scale(.98);
+      pointer-events:none;
+    }
+
+    /* Terms page */
+    .termsList{
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: rgba(42, 27, 34, .84);
+      line-height:1.75;
+      font-weight:800;
+    }
+
+    /* Love letter page (same as before) */
+    .stage{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items:stretch;
+    }
+    @media (max-width: 860px){ .stage{grid-template-columns:1fr;} }
+
+    .letterCard{
+      border-radius: 24px;
+      border:1px solid rgba(255, 61, 127, .20);
+      background: rgba(255,255,255,.70);
+      box-shadow: var(--softShadow);
+      padding: 18px;
+    }
+    .romanticTitle{
+      font-family:"Dancing Script", cursive;
+      font-size: clamp(34px, 5vw, 58px);
+      color: var(--berry);
+      margin: 0 0 6px;
+    }
+    .romanticSub{
+      margin:0 0 14px;
+      color: var(--muted);
+      font-weight:800;
+      line-height:1.6;
+    }
+    .paper{
+      margin-top:12px;
+      background: rgba(255,240,246,.72);
+      border: 1px dashed rgba(255,61,127,.35);
+      border-radius: 18px;
+      padding: 16px;
+      line-height:1.85;
+      white-space:pre-wrap;
+      font-family:"Dancing Script", cursive;
+      font-size: 22px;
+      color: rgba(42, 27, 34, .88);
+      display:none;
+    }
+    .paper.show{display:block;}
+
+    .envelopeWrap{
+      border-radius: 24px;
+      border:1px solid rgba(255, 61, 127, .20);
+      background: linear-gradient(135deg, rgba(255,255,255,.75), rgba(255,214,231,.6));
+      box-shadow: 0 10px 40px rgba(74, 12, 40, .06) inset;
+      display:flex;align-items:center;justify-content:center;
+      min-height: 320px;
+      position:relative;
+      overflow:hidden;
+    }
+    .env{
+      width: 260px;
+      height: 170px;
+      position:relative;
+      filter: drop-shadow(0 22px 30px rgba(74, 12, 40, .14));
+    }
+    .env .back{
+      position:absolute; inset:0;
+      background: rgba(255,255,255,.92);
+      border-radius: 18px;
+      border: 1px solid rgba(142, 27, 82, .12);
+    }
+    .env .front{
+      position:absolute; inset:0;
+      border-radius: 18px;
+      overflow:hidden;
+    }
+    .env .front:before{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(255,214,231,.75));
+    }
+    .env .front:after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(135deg, transparent 50%, rgba(255,194,218,.95) 50%) left,
+        linear-gradient(225deg, transparent 50%, rgba(255,194,218,.95) 50%) right;
+      background-size: 50% 100%;
+      background-repeat:no-repeat;
+      border: 1px solid rgba(255,61,127,.18);
+      border-radius: 18px;
+      opacity:.95;
+    }
+    .env .flap{
+      position:absolute; left:0; right:0; top:0; height: 55%;
+      background: linear-gradient(135deg, rgba(255,241,246,.92), rgba(255,194,218,.92));
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      transform-origin: top;
+      transform: rotateX(0deg);
+      transition: transform .85s cubic-bezier(.2,.9,.1,1);
+      border-top-left-radius:18px;
+      border-top-right-radius:18px;
+      border:1px solid rgba(255,61,127,.18);
+    }
+    .env.open .flap{ transform: rotateX(175deg); }
+
+    .env .seal{
+      position:absolute; right:14px; bottom:14px;
+      width: 46px; height: 46px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--rose), var(--rose2));
+      display:grid; place-items:center;
+      color:white;
+      font-size:20px;
+      transform: rotate(10deg);
+      box-shadow: 0 18px 30px rgba(255,61,127,.25);
+      border: 1px solid rgba(255,255,255,.5);
+    }
+
+    .env .mini{
+      position:absolute; left:14px; right:14px; bottom:14px;
+      height: 120px;
+      background: rgba(255,255,255,.96);
+      border-radius: 14px;
+      border: 1px solid rgba(142, 27, 82, .10);
+      display:grid;place-items:center;
+      font-weight:1000;color:var(--berry);
+      transition: transform .9s cubic-bezier(.2,.9,.1,1);
+      transform: translateY(24px);
+      text-align:center;
+      padding: 12px;
+    }
+    .env.open .mini{ transform: translateY(-16px); }
+
+    .tiny{opacity:.7;font-size:12px;margin-top:10px;font-weight:800;color:var(--muted);}
+
+    /* confetti */
+    .confettiPiece{position:fixed;z-index:60;border-radius:4px;}
+  </style>
+</head>
+
+<body>
+  <!-- Cover that "opens" -->
+  <div class="cover" id="cover">
+    <div class="coverInner">
+      <div class="coverTitle">Tap to open 💗</div>
+      <p class="coverText">
+        Anniversary content ahead. Side effects may include smiling.
+      </p>
+      <div class="coverHint">✨ Tap anywhere to begin ✨</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- PAGE 1: Renewal offer only -->
+    <section class="page active" id="page1">
+      <div class="pill">💞 Sikander Premium • Anniversary Edition</div>
+      <div style="height:14px"></div>
+
+      <div class="card">
+        <h1>Happy Anniversary</h1>
+        <p class="sub">
+          You have made me so happy these past <b>3 years</b> and I can’t wait for so many more years to spend with you.
+        </p>
+
+        <div class="panel">
+          <h2>Renewal offer</h2>
+          <p>Would you like to renew your subscription with <b>Sikander Premium</b>?</p>
+          <div class="priceTag">Includes: unlimited hugs • priority kisses • lifetime support</div>
+
+          <div class="btnrow" id="decisionRow" style="margin-top:16px">
+            <button class="primary" id="yes1">Yes 💘</button>
+            <button class="ghost" id="no1">No 🙈</button>
+          </div>
+
+          <!-- 10 YES buttons show up later -->
+          <div class="yesGrid" id="yesGrid"></div>
+
+          <div class="bigMsg" id="statusBox">Status: awaiting your decision…</div>
+          <div class="tiny">Try pressing “No” if you’re feeling brave 😌</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2: Terms & Conditions -->
+    <section class="page" id="page2">
+      <div class="pill">📜 Terms & Conditions • Sikander Premium</div>
+      <div style="height:14px"></div>
+
+      <div class="card">
+        <h1>Terms & Conditions</h1>
+        <p class="sub">Please read carefully (or don’t, I know you’ll agree anyway).</p>
+
+        <div class="panel">
+          <h2>You agree to:</h2>
+          <ul class="termsList">
+            <li>Receive daily affection and surprise compliments</li>
+            <li>Be the main character, always</li>
+            <li>Unlimited “come here” hugs and forehead kisses</li>
+            <li>Occasional teasing (100% loving)</li>
+            <li>Lifetime customer support from Sikander</li>
+          </ul>
+
+          <div class="btnrow" style="margin-top:16px">
+            <button class="primary" id="agreeBtn">Agree ✅</button>
+          </div>
+
+          <div class="bigMsg">By clicking Agree, you accept a lifetime of being adored.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3: Love letter (same as before) -->
+    <section class="page" id="page3">
+      <div class="pill">💌 Agreement confirmed • Love letter unlocked</div>
+      <div style="height:14px"></div>
+
+      <div class="card stage">
+        <div class="letterCard">
+          <div class="romanticTitle">For you 💗</div>
+          <p class="romanticSub">Press the button on the right and open this… with a smile.</p>
+
+          <div class="paper" id="paper">
+Dear Hawa,
+
+[Write your love letter here — cute, romantic, funny.
+You can keep it short or go full poet mode.]
+
+Love always,
+Sikander
+          </div>
+
+          <div class="tiny">
+            Tip: edit the love letter text inside the <code>#paper</code> block in the HTML.
+          </div>
+        </div>
+
+        <div class="envelopeWrap">
+          <div>
+            <div class="env" id="env">
+              <div class="back"></div>
+              <div class="flap"></div>
+              <div class="front"></div>
+              <div class="mini" id="miniText">Click “open with a smile” 💗</div>
+              <div class="seal">❤</div>
+            </div>
+
+            <div style="height:14px"></div>
+
+            <div style="display:flex;justify-content:center">
+              <button class="primary" id="openSmile">Open with a smile 😊</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // ===== Cover open =====
+      const cover = document.getElementById("cover");
+      const openCover = () => cover.classList.add("open");
+      cover.addEventListener("click", openCover);
+      cover.addEventListener("touchstart", openCover, { passive:true });
+
+      // ===== Pages =====
+      const page1 = document.getElementById("page1");
+      const page2 = document.getElementById("page2");
+      const page3 = document.getElementById("page3");
+
+      const statusBox = document.getElementById("statusBox");
+      const yes1 = document.getElementById("yes1");
+      const no1 = document.getElementById("no1");
+      const yesGrid = document.getElementById("yesGrid");
+      const decisionRow = document.getElementById("decisionRow");
+      const agreeBtn = document.getElementById("agreeBtn");
+
+      function showPage(page){
+        [page1, page2, page3].forEach(p => p.classList.remove("active"));
+        page.classList.add("active");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // ===== FUN "No" flow =====
+      // 0: initial
+      // 1: after 1st click -> "Try again"
+      // 2: after 2nd click -> YES big, NO small
+      // 3: after 3rd click -> "Last chance"
+      // 4: after 4th click -> spawn 10 YES buttons + "Now try it"
+      let noStage = 0;
+
+      function goTerms(){ showPage(page2); burstConfetti(140); }
+      function goLove(){ showPage(page3); burstConfetti(120); }
+
+      yes1.addEventListener("click", goTerms);
+
+      no1.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        if (noStage === 0){
+          noStage = 1;
+          no1.textContent = "Try again 😌";
+          statusBox.textContent = "Status: interesting choice… try again.";
+          burstConfetti(25);
+          return;
+        }
+
+        if (noStage === 1){
+          noStage = 2;
+          statusBox.textContent = "Status: okay now you’re just being silly 😭";
+          yes1.classList.add("yesBig");
+          no1.classList.add("noSmall");
+          burstConfetti(35);
+          return;
+        }
+
+        if (noStage === 2){
+          noStage = 3;
+          no1.textContent = "Last chance… 😭";
+          statusBox.textContent = "Status: last chance warning issued.";
+          burstConfetti(45);
+          return;
+        }
+
+        if (noStage === 3){
+          noStage = 4;
+          statusBox.textContent = "Now try it 😌";
+          spawnYesButtons();
+          burstConfetti(90);
+          return;
+        }
+      });
+
+      function spawnYesButtons(){
+        // Hide the original row or keep it — we'll keep it but add the grid
+        yesGrid.innerHTML = "";
+        yesGrid.classList.add("show");
+
+        for (let i = 0; i < 10; i++){
+          const b = document.createElement("button");
+          b.className = "primary";
+          b.textContent = "YES! 💘";
+          b.addEventListener("click", goTerms);
+          yesGrid.appendChild(b);
+        }
+
+        // Optional: make the original NO become YES too for extra “now try it”
+        no1.textContent = "YES! 💘";
+        no1.classList.remove("ghost");
+        no1.classList.add("primary");
+        no1.classList.remove("noSmall");
+        no1.onclick = (ev) => { ev.preventDefault(); goTerms(); };
+
+        yes1.textContent = "YES! 💘";
+      }
+
+      // ===== Terms agree -> Love letter page =====
+      agreeBtn.addEventListener("click", goLove);
+
+      // ===== Page 3 envelope open =====
+      const env = document.getElementById("env");
+      const paper = document.getElementById("paper");
+      const openSmile = document.getElementById("openSmile");
+      const miniText = document.getElementById("miniText");
+
+      openSmile.addEventListener("click", () => {
+        env.classList.toggle("open");
+        const isOpen = env.classList.contains("open");
+        if (isOpen){
+          paper.classList.add("show");
+          miniText.textContent = "Surprise 💗";
+          burstConfetti(120);
+        } else {
+          paper.classList.remove("show");
+          miniText.textContent = "Click “open with a smile” 💗";
+        }
+      });
+
+      // ===== Confetti =====
+      function burstConfetti(count){
+        for (let i = 0; i < count; i++){
+          const piece = document.createElement("div");
+          piece.className = "confettiPiece";
+          piece.style.left = (50 + (Math.random()*18 - 9)) + "vw";
+          piece.style.top  = (20 + (Math.random()*8)) + "vh";
+          piece.style.width = (6 + Math.random()*6) + "px";
+          piece.style.height = (10 + Math.random()*14) + "px";
+          piece.style.background = `hsl(${Math.random()*360}, 90%, 70%)`;
+          piece.style.transform = `rotate(${Math.random()*360}deg)`;
+          document.body.appendChild(piece);
+
+          const dx = (Math.random()*600 - 300);
+          const dy = (500 + Math.random()*500);
+          const rot = (Math.random()*720 - 360);
+          const dur = (900 + Math.random()*700);
+
+          piece.animate([
+            { transform:`translate(0,0) rotate(0deg)`, opacity:1 },
+            { transform:`translate(${dx}px, ${dy}px) rotate(${rot}deg)`, opacity:0 }
+          ], { duration: dur, easing:"cubic-bezier(.2,.7,.2,1)" });
+
+          setTimeout(() => piece.remove(), dur + 50);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
