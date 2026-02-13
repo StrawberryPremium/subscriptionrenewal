@@ -374,9 +374,9 @@
     <div class="coverInner">
       <div class="coverTitle">Tap to open 💗</div>
       <p class="coverText">
-        Anniversary content ahead. Side effects may include smiling.
+        Get ready for me to BLOW your mind
       </p>
-      <div class="coverHint">✨ Tap anywhere to begin ✨</div>
+      <div class="coverHint">✨ Tap anywhere to smile ✨</div>
     </div>
   </div>
 
@@ -384,30 +384,30 @@
 
     <!-- PAGE 1: Renewal offer only -->
     <section class="page active" id="page1">
-      <div class="pill">💞 Sikander Premium • Anniversary Edition</div>
+      <div class="pill">💞 Sikander Premium • Anniversary Edition 💞</div>
       <div style="height:14px"></div>
 
       <div class="card">
-        <h1>Happy Anniversary</h1>
+        <h1>Happy Anniversary!!!</h1>
         <p class="sub">
-          You have made me so happy these past <b>3 years</b> and I can’t wait for so many more years to spend with you.
+          You have made me so happy these past <b>3 years</b> and I can’t wait to have so many more years to spend with you.
         </p>
 
         <div class="panel">
           <h2>Renewal offer</h2>
           <p>Would you like to renew your subscription with <b>Sikander Premium</b>?</p>
-          <div class="priceTag">Includes: unlimited hugs • priority kisses • lifetime support</div>
+          <div class="priceTag">Includes: Big Fat Hugs • Peak Ragebait • Permanent Shoulder To Cry On</div>
 
           <div class="btnrow" id="decisionRow" style="margin-top:16px">
-            <button class="primary" id="yes1">Yes 💘</button>
-            <button class="ghost" id="no1">No 🙈</button>
+            <button class="primary" id="yes1">Of Course! 💘</button>
+            <button class="ghost" id="no1">No 😒</button>
           </div>
 
           <!-- 10 YES buttons show up later -->
           <div class="yesGrid" id="yesGrid"></div>
 
-          <div class="bigMsg" id="statusBox">Status: awaiting your decision…</div>
-          <div class="tiny">Try pressing “No” if you’re feeling brave 😌</div>
+          <div class="bigMsg" id="statusBox">Remember I'm watching you...</div>
+          <div class="tiny">Press "No" if you think you are a diva baddie 😉</div>
         </div>
       </div>
     </section>
@@ -424,18 +424,19 @@
         <div class="panel">
           <h2>You agree to:</h2>
           <ul class="termsList">
-            <li>Receive daily affection and surprise compliments</li>
-            <li>Be the main character, always</li>
-            <li>Unlimited “come here” hugs and forehead kisses</li>
-            <li>Occasional teasing (100% loving)</li>
-            <li>Lifetime customer support from Sikander</li>
+            <li>Being the woman of my dreams 24/7</li>
+            <li>Allowing me to be the person who you come to for everything</li>
+            <li>Unlimited hugs and forehead kisses</li>
+            <li>The Occasional Ragebait</li>
+            <li>Constant emotional support</li>
+            <li>A long and blessed future with the love of your life</li>
           </ul>
 
           <div class="btnrow" style="margin-top:16px">
             <button class="primary" id="agreeBtn">Agree ✅</button>
           </div>
 
-          <div class="bigMsg">By clicking Agree, you accept a lifetime of being adored.</div>
+          <div class="bigMsg">By clicking Agree, you accept a lifetime of love</div>
         </div>
       </div>
     </section>
@@ -447,21 +448,22 @@
 
       <div class="card stage">
         <div class="letterCard">
-          <div class="romanticTitle">For you 💗</div>
-          <p class="romanticSub">Press the button on the right and open this… with a smile.</p>
+          <div class="romanticTitle">For My Bee 🐝</div>
+          <p class="romanticSub">I hope you liked my website my love</p>
 
           <div class="paper" id="paper">
-Dear Hawa,
-
-[Write your love letter here — cute, romantic, funny.
-You can keep it short or go full poet mode.]
-
-Love always,
+Dear Hawabee,
+The past three years with you has been some of the best years of my life. I've watched you grow, you've watched me grow and we saw each other in our highs and our lows. We have gone through so much together and all that it's done is make us stronger.
+One of the most memorable moments that I have had with you was the time that we were at UCL neuroscience event and you were so mad at me and I just could not let you go, even if you wanted to rip my hair out. You and me standing in the dark, me just trying to get you to listen to me while you are trying not to kill me. Baby you are my life and in that moment I had the worst thought that I had lost my life but you decided to take me back and I will not let that go to waste.
+Everything you've done for me I have been building it up and making sure that I can do my best to give you the support and help that you give me. I know I am not worth you; you are beautiful, kind, funny, even though you occasionally ragebait me, I know it is all out of love. You are my past, my present and my future and I hope that we are together for many many years to come.
+Just thinking about you on our wedding day, in that beautiful dress, walking up to you unable to hold my tears back (even though its gay to cry), makes me want to skip to that moment right away. Then thinking about our future in marriage, travelling the world, buying a home, getting into arguments about what to decorate the room or whos house we visit. I can't wait to live that life with you, bee.
+Even if life won't always be sunshines and rainbows, I know that we will get through it together as we have done for so long and if you renew your subscription with me, I will be the luckiest man alive.
+I love you so much baby, please always stay with me,
+Your love,
 Sikander
           </div>
 
           <div class="tiny">
-            Tip: edit the love letter text inside the <code>#paper</code> block in the HTML.
           </div>
         </div>
 
@@ -531,15 +533,15 @@ Sikander
 
         if (noStage === 0){
           noStage = 1;
-          no1.textContent = "Try again 😌";
-          statusBox.textContent = "Status: interesting choice… try again.";
+          no1.textContent = "Lets try that again 😌";
+          statusBox.textContent = "Status: Bro thought I wouldn't know";
           burstConfetti(25);
           return;
         }
 
         if (noStage === 1){
           noStage = 2;
-          statusBox.textContent = "Status: okay now you’re just being silly 😭";
+          statusBox.textContent = "Okay now you’re just being silly 😭";
           yes1.classList.add("yesBig");
           no1.classList.add("noSmall");
           burstConfetti(35);
@@ -548,15 +550,15 @@ Sikander
 
         if (noStage === 2){
           noStage = 3;
-          no1.textContent = "Last chance… 😭";
-          statusBox.textContent = "Status: last chance warning issued.";
+          no1.textContent = "Last chance… 🤬";
+          statusBox.textContent = "I guess you leave me with no other choice...";
           burstConfetti(45);
           return;
         }
 
         if (noStage === 3){
           noStage = 4;
-          statusBox.textContent = "Now try it 😌";
+          statusBox.textContent = "Try clicking no NOW 🤪";
           spawnYesButtons();
           burstConfetti(90);
           return;
@@ -638,3 +640,4 @@ Sikander
   </script>
 </body>
 </html>
+
